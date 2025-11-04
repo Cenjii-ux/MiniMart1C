@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html>  <--nahbro ayaw kona-->
 <html lang="en">
 <head>
 <meta charset="utf-8" />
@@ -259,16 +259,6 @@
   </div>
 
 <script>
-/* =======================
-   OOP STRUCTURE (JS)
-   - Product: holds product data & view helper
-   - Cart: manages items, quantities and UI updates
-   ======================= */
-
-/* =======================
-   OOP STRUCTURE (JS)
-   ======================= */
-
 class Product {
   constructor(id, title, price, category, img, desc = "") {
     this.id = id;
@@ -294,7 +284,7 @@ class Product {
 }
 
 /* =======================
-   INHERITANCE
+   INHERITANCE area
    ======================= */
 
 // DigitalProduct inherits from Product
@@ -304,20 +294,17 @@ class DigitalProduct extends Product {
     this.downloadLink = downloadLink;
   }
 
-  // new method specific to DigitalProduct
   getDownloadInfo() {
     return `Download your item here: ${this.downloadLink}`;
   }
 }
 
-// DiscountedProduct inherits from Product and OVERRIDES a method (Polymorphism)
 class DiscountedProduct extends Product {
   constructor(id, title, price, category, img, desc, discountPercent) {
     super(id, title, price, category, img, desc);
     this.discountPercent = discountPercent;
   }
-
-  // Overriding cardHTML (Polymorphism)
+  
   cardHTML() {
     const discountedPrice = this.price * (1 - this.discountPercent / 100);
     return `
@@ -375,7 +362,6 @@ class Cart {
     this.syncUI();
   }
 
-  // UI sync method (keeps separation of concerns)
   syncUI() {
     const cartCountEl = document.getElementById('cartCount');
     const cartItemsEl = document.getElementById('cartItems');
@@ -434,7 +420,7 @@ class Cart {
 }
 
 /* =======================
-   Demo data (replace images with your own)
+   Demo data (dont galaw galaw!)
    ======================= */
 
 const products = [
@@ -449,7 +435,7 @@ const products = [
 ];
 
 /* =======================
-   App logic & DOM plumbing
+   App logic & DOM plumbing(dont galaw!)
    ======================= */
 
 const cart = new Cart();
@@ -497,14 +483,14 @@ function renderProducts(filterText='') {
       cart.add(prod,1);
       openCart();
     });
-    // clicking card also quick-view
+    // clicking card and quick-view
     col.addEventListener('click', ()=> openModal(prod));
     productGrid.appendChild(col);
   });
 }
 renderProducts();
 
-/* SEARCH */
+/* SEARCH area */
 document.getElementById('searchBtn').addEventListener('click', ()=>{
   const q = document.getElementById('searchInput').value.trim();
   renderProducts(q);
@@ -531,7 +517,7 @@ function openCart(){
   cartDrawer.setAttribute('aria-hidden','false');
 }
 
-/* product modal (quick view) */
+/* (quick view) */
 const overlay = document.getElementById('overlay');
 const modalImg = document.getElementById('modalImg');
 const modalTitle = document.getElementById('modalTitle');
@@ -601,3 +587,4 @@ window.addEventListener('click', (e)=>{
 
 </body>
 </html>
+
